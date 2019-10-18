@@ -7,13 +7,38 @@ let _state = {
 
 
 //Public
-export default class ValuesService {
+export default class ListService {
     //TODO  Here is where we handle all of our data manipulation, 
     //given the information you need in the controller, 
     //what methods will be required to support that functionality?
 
+    addList(newList) {
+        _state.lists.push(new List(newList));
+        this.saveLists();
+    }
 
+    addTask(task, listIndex) {
+        _state.lists[listIndex].tasks.push(task)
+        this.saveLists();
+    }
 
+    removeList(listIndex) {
+        _state.lists.splice(listIndex, 1);
+        this.saveLists();
+    }
+
+    removeTask(listIndex, taskIndex) {
+        _state.lists[listIndex].tasks.splice(taskIndex, 1);
+        this.saveLists();
+    }
+
+    get Lists() {
+        return _state.lists.map(L => new List(L));
+    }
+
+    constructor() {
+        this.getLists();
+    }
 
     //NOTE You will need this code to persist your data into local storage, these methods should not require changing
 

@@ -1,0 +1,9 @@
+.action {
+    cursor: pointer;
+    opacity: .7;
+    transition: all 0.3s linear;
+}
+
+.action:hover {
+    opacity: 1;
+}

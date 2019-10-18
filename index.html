@@ -7,11 +7,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css"
+        integrity="sha256-piqEf7Ap7CMps8krDQsSOTZgF+MU/0MPyPW2enj5I40=" crossorigin="anonymous" />
     <title>Listmon</title>
 </head>
 
 <body>
-
+    <div class="container-fluid">
+        <div class="row p-3 mt-3 mb-3">
+            <div class="col text-center">
+                <h1><i class="fas fa-tasks mr-1 text-info"></i>
+                    Organized
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10">
+                <form onsubmit="app.controllers.listController.addList(event)">
+                    <div class="input-group p-md-5">
+                        <input type="text" name="listName" class="form-control" placeholder="List title" required
+                            aria-label="List title" aria-describedby="button-addon" />
+                        <div class="input-group-append">
+                            <button class="btn btn-info" type="submit" id="button-addon">
+                                Add list
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="card-columns" id="lists"></div>
+    </div>
 
     <script src="app/main.js" type="module"></script>
 </body>
